@@ -74,9 +74,16 @@ jobs:
     - name: Install TRX to JUnit Converter
       run: dotnet tool install --global trx2junit
     
+    # - name: Convert TRX to JUnit XML
+    #   run: trx2junit TestResults/*.trx -o TestResults/playwright-results.xml
+
     - name: Convert TRX to JUnit XML
-      run: trx2junit TestResults/*.trx -o TestResults/playwright-results.xml
-    
+      run: |
+        mkdir -p TestResults/JUnit
+        for file in TestResults/*.trx; do
+          trx2junit "$file" --output "TestResults/JUnit/$(basename "$file" .trx).xml"
+        done
+
     - name: Install JUnit Viewer
       run: npm install -g junit-viewer
     
