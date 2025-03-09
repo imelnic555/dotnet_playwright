@@ -49,12 +49,10 @@ jobs:
     - name: Verify TRX Files Before Report Generation
       run: ls -lah TestResults/
 
-
-    - name: Generate Playwright HTML Test Report
-      run: reportgenerator -reports:TestResults/*.trx -targetdir:TestResults/Report -reporttypes:"Html;HtmlSummary" -verbosity:Debug
     
-    - name: Generate Playwright HTML Test Report
-      run: reportgenerator -reports:"TestResults/*.trx" -targetdir:"TestResults/Report" -reporttypes:"Html;HtmlSummary" -verbosity:Debug
+    - name: Run ReportGenerator with Full Debugging
+      run: reportgenerator -reports:"TestResults/*.trx" -targetdir:"TestResults/Report" -reporttypes:"Html;HtmlSummary" -verbosity:Verbose
+
     
     
 
