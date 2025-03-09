@@ -59,7 +59,7 @@ jobs:
     # - name: Generate Playwright Test Execution Report
     #   run: trx2html -i TestResults/*.trx -o TestResults/Report/TestReport.html
 
-    - name: Install VSTest HTML Converter
+    # - name: Install VSTest HTML Converter
     #   run: dotnet tool install --global HtmlTestRunner
   
     # - name: Convert TRX to HTML Test Report
