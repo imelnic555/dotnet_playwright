@@ -1,4 +1,4 @@
-name: Run Playwright Tests
+name: Playwright E2E Tests & Report
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
@@ -19,7 +19,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '9.0'  # Change this based on your .NET version
+        dotnet-version: '9.0'  # Change to match your .NET version
 
     - name: Install Playwright CLI
       run: dotnet tool install --global Microsoft.Playwright.CLI
@@ -30,19 +30,26 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Playwright Tests
+    - name: Run Playwright E2E Tests
       run: dotnet test --logger trx --results-directory TestResults
 
-    # ✅ Convert TRX to HTML Report
+    # ✅ Convert .trx Test Results to an HTML Report
     - name: Install ReportGenerator
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
 
-    - name: Generate HTML Report
+    - name: Generate HTML Test Report
       run: reportgenerator -reports:TestResults/*.trx -targetdir:TestResults/Report -reporttypes:Html
 
-    # ✅ Upload HTML Report as an Artifact
-    - name: Upload Test Report
+    # ✅ Upload HTML Test Report as an Artifact
+    - name: Upload Test Report Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Playwright-Test-Report
         path: TestResults/Report
+
+    # ✅ Deploy HTML Report to GitHub Pages
+    - name: Deploy Test Report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./TestResults/Report
