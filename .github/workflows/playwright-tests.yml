@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Uses a Linux-based GitHub Actions runner
     
     steps:
     - name: Checkout Repository
@@ -19,18 +19,18 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '9.0'  # Update this to your .NET version
+        dotnet-version: '9.0'  # Change this based on your .NET version
 
-    - name: Install Playwright
+    - name: Install Playwright CLI
       run: dotnet tool install --global Microsoft.Playwright.CLI
 
     - name: Install Dependencies
       run: dotnet restore
 
-    - name: Install Playwright Browsers
+    - name: Install Playwright Browsers (Chromium, Firefox, WebKit)
       run: npx playwright install --with-deps
 
-    - name: Run Tests
+    - name: Run Playwright Tests
       run: dotnet test --logger trx --results-directory TestResults
 
     - name: Upload Test Results
