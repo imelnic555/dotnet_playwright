@@ -32,6 +32,9 @@ jobs:
 
     - name: Run Playwright E2E Tests
       run: dotnet test --logger trx --results-directory TestResults
+    - name: Install Latest ReportGenerator
+      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+
 
     # ✅ Convert .trx Test Results to an HTML Report
     - name: Install ReportGenerator
