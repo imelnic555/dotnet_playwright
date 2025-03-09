@@ -65,11 +65,23 @@ jobs:
     # - name: Convert TRX to HTML Test Report
     #   run: HtmlTestRunner TestResults/*.trx -o TestResults/Report/TestReport.html
 
-    - name: Install TrxToHtml.NetCore in Test Project
-      run: dotnet add AutomationFramework.Tests/AutomationFramework.Tests.csproj package TrxToHtml.NetCore --version 1.0.0
+    # - name: Install TrxToHtml.NetCore in Test Project
+    #   run: dotnet add AutomationFramework.Tests/AutomationFramework.Tests.csproj package TrxToHtml.NetCore --version 1.0.0
 
-    - name: Convert TRX to HTML Test Report
-      run: dotnet TrxToHtml.NetCore TestResults/*.trx TestResults/Report/TestReport.html
+    # - name: Convert TRX to HTML Test Report
+    #   run: dotnet TrxToHtml.NetCore TestResults/*.trx TestResults/Report/TestReport.html
+
+    - name: Install TRX to JUnit Converter
+      run: dotnet tool install --global trx2junit
+    
+    - name: Convert TRX to JUnit XML
+      run: trx2junit TestResults/*.trx -o TestResults/playwright-results.xml
+    
+    - name: Install JUnit Viewer
+      run: npm install -g junit-viewer
+    
+    - name: Generate HTML Report from JUnit XML
+      run: junit-viewer --results=TestResults/playwright-results.xml --save=TestResults/Report/TestReport.html
 
 
 
