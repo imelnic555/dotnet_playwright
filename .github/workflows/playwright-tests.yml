@@ -52,6 +52,9 @@ jobs:
 
     - name: Generate Playwright HTML Test Report
       run: reportgenerator -reports:TestResults/*.trx -targetdir:TestResults/Report -reporttypes:"Html;HtmlSummary" -verbosity:Debug
+    
+    - name: Generate Playwright HTML Test Report
+      run: reportgenerator -reports:"TestResults/*.trx" -targetdir:"TestResults/Report" -reporttypes:"Html;HtmlSummary" -verbosity:Debug
 
 
     - name: Verify HTML Report Exists
