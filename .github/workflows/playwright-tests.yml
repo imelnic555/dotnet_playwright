@@ -37,7 +37,7 @@ jobs:
 
     
     - name: Verify ReportGenerator Installation
-      run: reportgenerator -version
+      run: dotnet tool list -g
 
     - name: Convert TRX to JUnit Format
       run: dotnet test --logger "junit;LogFileName=TestResults/playwright-results.xml"
@@ -59,8 +59,7 @@ jobs:
     - name: Generate Playwright HTML Test Report
       run: reportgenerator -reports:"TestResults/*.trx" -targetdir:"TestResults/Report" -reporttypes:"Html;HtmlSummary" -verbosity:Debug
     
-    - name: Verify ReportGenerator Installation
-      run: reportgenerator -version
+    
 
 
 
