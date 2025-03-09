@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationFramework", "AutomationFramework\AutomationFramework.csproj", "{0E75FA43-A141-4CD8-857E-A6B40D58CC26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationFramework.Tests", "AutomationFramework.Tests\AutomationFramework.Tests.csproj", "{F97A7681-D4D2-4F57-8AA7-53F237422CA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E75FA43-A141-4CD8-857E-A6B40D58CC26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E75FA43-A141-4CD8-857E-A6B40D58CC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E75FA43-A141-4CD8-857E-A6B40D58CC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E75FA43-A141-4CD8-857E-A6B40D58CC26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F97A7681-D4D2-4F57-8AA7-53F237422CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F97A7681-D4D2-4F57-8AA7-53F237422CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F97A7681-D4D2-4F57-8AA7-53F237422CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F97A7681-D4D2-4F57-8AA7-53F237422CA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

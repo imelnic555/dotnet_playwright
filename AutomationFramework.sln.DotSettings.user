@@ -1,0 +1,17 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=40bfd787_002D70cd_002D44f7_002Dbd4c_002Dacecf51ebdec/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DataFetchTask_ExecutesWithoutError" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::F97A7681-D4D2-4F57-8AA7-53F237422CA8::net9.0::AutomationFramework.Tests.TaskTests.DataFetchTask_ExecutesWithoutError&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=79b7c451_002Db94b_002D42fe_002Db1be_002Daf55ccac2a93/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TaskTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::F97A7681-D4D2-4F57-8AA7-53F237422CA8::net9.0::AutomationFramework.Tests.TaskTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9ac46eec_002D148a_002D4bc2_002Da2a2_002Dfdbc9b38b405/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from WorkflowEngineTests.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;F97A7681-D4D2-4F57-8AA7-53F237422CA8/f:WorkflowEngineTests.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fc220db5_002D0f01_002D4da7_002Dbe8e_002Dc19095e2ac5c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WorkflowEngineTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;F97A7681-D4D2-4F57-8AA7-53F237422CA8/f:TaskTests.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,0 +1,14 @@
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\bin\Debug\net9.0\AutomationFramework.exe
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\bin\Debug\net9.0\AutomationFramework.deps.json
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\bin\Debug\net9.0\AutomationFramework.runtimeconfig.json
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\bin\Debug\net9.0\AutomationFramework.dll
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\bin\Debug\net9.0\AutomationFramework.pdb
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\AutomationFramework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\AutomationFramework.AssemblyInfoInputs.cache
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\AutomationFramework.AssemblyInfo.cs
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\AutomationFramework.csproj.CoreCompileInputs.cache
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\AutomationFramework.dll
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\refint\AutomationFramework.dll
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\AutomationFramework.pdb
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\AutomationFramework.genruntimeconfig.cache
+C:\Users\home\RiderProjects\AutomationFramework\AutomationFramework\obj\Debug\net9.0\ref\AutomationFramework.dll
