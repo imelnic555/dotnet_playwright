@@ -35,10 +35,13 @@ jobs:
     - name: Install Latest ReportGenerator
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
 
+    
+    - name: Verify ReportGenerator Installation
+      run: reportgenerator -version
 
-    # ✅ Convert .trx Test Results to an HTML Report
-    - name: Install ReportGenerator
-      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+    - name: Convert TRX to JUnit Format
+      run: dotnet test --logger "junit;LogFileName=TestResults/playwright-results.xml"
+
 
     - name: Upload TRX Test Results
       uses: actions/upload-artifact@v4
@@ -55,6 +58,10 @@ jobs:
     
     - name: Generate Playwright HTML Test Report
       run: reportgenerator -reports:"TestResults/*.trx" -targetdir:"TestResults/Report" -reporttypes:"Html;HtmlSummary" -verbosity:Debug
+    
+    - name: Verify ReportGenerator Installation
+      run: reportgenerator -version
+
 
 
     - name: Verify HTML Report Exists
