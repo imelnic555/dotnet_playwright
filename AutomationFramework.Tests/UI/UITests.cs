@@ -16,18 +16,23 @@ namespace AutomationFramework.Tests.UI
         {
             _playwright = await Playwright.CreateAsync();
 
-            // Manually specify the Chromium executable path
-            var chromiumPath = @"C:\Users\home\AppData\Local\ms-playwright\chromium-1161\chrome-win\chrome.exe";
-
-            _browser = await _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            // Get the correct Chromium executable path
+            var launchOptions = new BrowserTypeLaunchOptions
             {
-                ExecutablePath = chromiumPath, // ✅ Force Playwright to use this version
                 Headless = true
-            });
+            };
 
+            // Use default Playwright-installed Chromium in CI
+            if (Environment.GetEnvironmentVariable("CI") == "true")
+            {
+                launchOptions.ExecutablePath = "";
+            }
+
+            _browser = await _playwright.Chromium.LaunchAsync(launchOptions);
             _context = await _browser.NewContextAsync();
             _page = await _context.NewPageAsync();
         }
+
 
         [Test]
         public async Task VerifyHomePageTitle()

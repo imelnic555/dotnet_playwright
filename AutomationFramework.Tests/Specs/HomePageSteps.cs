@@ -18,18 +18,20 @@ namespace AutomationFramework.Tests.Specs
         {
             _playwright = await Playwright.CreateAsync();
 
-            // Explicitly set the Chromium path for SpecFlow
-            var chromiumPath = @"C:\Users\home\AppData\Local\ms-playwright\chromium-1161\chrome-win\chrome.exe";
-
-            _browser = await _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            var launchOptions = new BrowserTypeLaunchOptions
             {
-                ExecutablePath = chromiumPath, // ✅ Force the correct version
                 Headless = true
-            });
+            };
 
+            if (Environment.GetEnvironmentVariable("CI") == "true")
+            {
+                launchOptions.ExecutablePath = "";
+            }
+
+            _browser = await _playwright.Chromium.LaunchAsync(launchOptions);
             _page = await _browser.NewPageAsync();
         }
-
+        
         [When(@"I navigate to ""(.*)""")]
         public async Task WhenINavigateTo(string url)
         {
