@@ -43,8 +43,11 @@ jobs:
         name: TRX-Test-Results
         path: TestResults/*.trx
 
-    - name: Generate HTML Test Report
-      run: reportgenerator -reports:TestResults/*.trx -targetdir:TestResults/Report -reporttypes:Html
+    - name: Generate Playwright HTML Test Report
+      run: reportgenerator -reports:TestResults/*.trx -targetdir:TestResults/Report -reporttypes:Html;HtmlSummary -verbosity:Debug
+
+    - name: Verify HTML Report Exists
+      run: ls -R TestResults/Report/
 
     # ✅ Upload HTML Test Report as an Artifact
     - name: Upload Test Report Artifact
