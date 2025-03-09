@@ -60,12 +60,17 @@ jobs:
     #   run: trx2html -i TestResults/*.trx -o TestResults/Report/TestReport.html
 
     - name: Install VSTest HTML Converter
-      run: dotnet tool install --global HtmlTestRunner
+    #   run: dotnet tool install --global HtmlTestRunner
   
-    - name: Convert TRX to HTML Test Report
-      run: HtmlTestRunner TestResults/*.trx -o TestResults/Report/TestReport.html
+    # - name: Convert TRX to HTML Test Report
+    #   run: HtmlTestRunner TestResults/*.trx -o TestResults/Report/TestReport.html
 
-    
+    - name: Install TrxToHtml.NetCore
+      run: dotnet add package TrxToHtml.NetCore --version 1.0.0
+
+    - name: Convert TRX to HTML Test Report
+      run: dotnet TrxToHtml.NetCore TestResults/*.trx TestResults/Report/TestReport.html
+
 
 
 
