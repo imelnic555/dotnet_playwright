@@ -1,0 +1,41 @@
+name: Run Playwright Tests
+
+on:
+  push:
+    branches:
+      - draft_project
+  pull_request:
+    branches:
+      - draft_project
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0'  # Update this to your .NET version
+
+    - name: Install Playwright
+      run: dotnet tool install --global Microsoft.Playwright.CLI
+
+    - name: Install Dependencies
+      run: dotnet restore
+
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+
+    - name: Run Tests
+      run: dotnet test --logger trx --results-directory TestResults
+
+    - name: Upload Test Results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: TestResults
