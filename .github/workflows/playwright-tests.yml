@@ -19,7 +19,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '9.0'  # Change this to match your .NET version
+        dotnet-version: '9.0'  # Change this based on your .NET version
 
     - name: Install Playwright CLI
       run: dotnet tool install --global Microsoft.Playwright.CLI
@@ -33,9 +33,16 @@ jobs:
     - name: Run Playwright Tests
       run: dotnet test --logger trx --results-directory TestResults
 
-    - name: Upload Test Results
-      if: always()
+    # ✅ Convert TRX to HTML Report
+    - name: Install ReportGenerator
+      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+
+    - name: Generate HTML Report
+      run: reportgenerator -reports:TestResults/*.trx -targetdir:TestResults/Report -reporttypes:Html
+
+    # ✅ Upload HTML Report as an Artifact
+    - name: Upload Test Report
       uses: actions/upload-artifact@v4
       with:
-        name: test-results
-        path: TestResults
+        name: Playwright-Test-Report
+        path: TestResults/Report
