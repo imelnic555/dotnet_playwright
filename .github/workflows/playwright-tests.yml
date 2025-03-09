@@ -65,8 +65,8 @@ jobs:
     # - name: Convert TRX to HTML Test Report
     #   run: HtmlTestRunner TestResults/*.trx -o TestResults/Report/TestReport.html
 
-    - name: Install TrxToHtml.NetCore
-      run: dotnet add package TrxToHtml.NetCore --version 1.0.0
+    - name: Install TrxToHtml.NetCore in Test Project
+      run: dotnet add AutomationFramework.Tests/AutomationFramework.Tests.csproj package TrxToHtml.NetCore --version 1.0.0
 
     - name: Convert TRX to HTML Test Report
       run: dotnet TrxToHtml.NetCore TestResults/*.trx TestResults/Report/TestReport.html
