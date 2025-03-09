@@ -46,6 +46,10 @@ jobs:
         name: TRX-Test-Results
         path: TestResults/*.trx
 
+    - name: Verify TRX Files Before Report Generation
+      run: ls -lah TestResults/
+
+
     - name: Generate Playwright HTML Test Report
       run: reportgenerator -reports:TestResults/*.trx -targetdir:TestResults/Report -reporttypes:"Html;HtmlSummary" -verbosity:Debug
 
