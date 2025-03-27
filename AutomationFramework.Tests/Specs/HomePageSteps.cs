@@ -9,10 +9,10 @@ namespace AutomationFramework.Tests.Specs
     [Binding]
     public class HomePageSteps
     {
-        private IPlaywright _playwright;
-        private IBrowser _browser;
-        private IPage _page;
-
+        private IPlaywright _playwright = default!;
+        private IBrowser _browser = default!;
+        private IPage _page = default!;
+        
         [Given(@"I open the browser")]
         public async Task GivenIOpenTheBrowser()
         {
