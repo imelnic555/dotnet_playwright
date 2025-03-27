@@ -1,4 +1,4 @@
-name: Playwright E2E Tests & Report
+name: Playwright E2E Tests & Allure Report
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '9.0'  # Change to match your .NET version
+        dotnet-version: '9.0'  # Update to match your .NET version
 
     - name: Install Playwright CLI
       run: dotnet tool install --global Microsoft.Playwright.CLI
@@ -30,82 +30,29 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Playwright E2E Tests
-      run: dotnet test --logger trx --results-directory TestResults
-    - name: Install Latest ReportGenerator
-      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+    - name: Install Allure Commandline
+      run: npm install -g allure-commandline --save-dev
 
-    
-    - name: Verify ReportGenerator Installation
-      run: dotnet tool list -g
+    # 🧪 Run Tests with Allure Results (using test.runsettings)
+    - name: Run Playwright E2E Tests with Allure Results
+      run: dotnet test --settings test.runsettings
 
-
-    - name: Upload TRX Test Results
-      uses: actions/upload-artifact@v4
-      with:
-        name: TRX-Test-Results
-        path: TestResults/*.trx
-
-    - name: Verify TRX Files Before Report Generation
-      run: ls -lah TestResults/
-
-    
-    # - name: Run ReportGenerator with Full Debugging
-    #   run: reportgenerator -reports:"TestResults/*.trx" -targetdir:"TestResults/Report" -reporttypes:"Html;HtmlSummary" -verbosity:Verbose
-
-    # - name: Install TRX to HTML Converter
-    #   run: dotnet tool install --global trx2html
-    
-    # - name: Generate Playwright Test Execution Report
-    #   run: trx2html -i TestResults/*.trx -o TestResults/Report/TestReport.html
-
-    # - name: Install VSTest HTML Converter
-    #   run: dotnet tool install --global HtmlTestRunner
-  
-    # - name: Convert TRX to HTML Test Report
-    #   run: HtmlTestRunner TestResults/*.trx -o TestResults/Report/TestReport.html
-
-    # - name: Install TrxToHtml.NetCore in Test Project
-    #   run: dotnet add AutomationFramework.Tests/AutomationFramework.Tests.csproj package TrxToHtml.NetCore --version 1.0.0
-
-    # - name: Convert TRX to HTML Test Report
-    #   run: dotnet TrxToHtml.NetCore TestResults/*.trx TestResults/Report/TestReport.html
-
-    - name: Install TRX to JUnit Converter
-      run: dotnet tool install --global trx2junit
-    
-    # - name: Convert TRX to JUnit XML
-    #   run: trx2junit TestResults/*.trx -o TestResults/playwright-results.xml
-
-    - name: Convert TRX to JUnit XML
+    # 📊 Generate Allure Report
+    - name: Generate Allure Report
       run: |
-        mkdir -p TestResults/JUnit
-        for file in TestResults/*.trx; do
-          trx2junit "$file" --output "TestResults/JUnit/$(basename "$file" .trx).xml"
-        done
+        mkdir -p allure-report
+        allure generate allure-results --clean -o allure-report
 
-    - name: Install JUnit Viewer
-      run: npm install -g junit-viewer
-    
-    - name: Generate HTML Report from JUnit XML
-      run: junit-viewer --results=TestResults/playwright-results.xml --save=TestResults/Report/TestReport.html
-
-
-
-
-    - name: Verify HTML Report Exists
-      run: ls -R TestResults/Report/
-
-    # ✅ Upload HTML Test Report as an Artifact
-    - name: Upload Test Report Artifact
+    # 📤 Upload Allure Report as Artifact
+    - name: Upload Allure Report Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Playwright-Test-Report
-        path: TestResults/Report
+        name: Allure-Test-Report
+        path: allure-report
 
-    # ✅ Deploy HTML Report to GitHub Pages
-    - name: Deploy Test Report to GitHub Pages
+    # 🌍 Deploy Allure Report to GitHub Pages
+    - name: Deploy Allure Report to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GH_D }}
-        publish_dir: ./TestResults/Report
+        publish_dir: ./allure-report
