@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1386","VerifyHomePageTitle","","Thu Mar 27 15:07:12 UTC 2025","passed","Thu Mar 27 15:07:13 UTC 2025","","AutomationFramework.Tests.UI.UITests","AutomationFramework.Tests.UI.UITests",""
+"","1276","VerifyButtonClick","","Thu Mar 27 15:07:09 UTC 2025","passed","Thu Mar 27 15:07:10 UTC 2025","","AutomationFramework.Tests.Specs.HomePageFeature","AutomationFramework.Tests.Specs.HomePageFeature",""
+"","816","VerifyHomePageTitle","","Thu Mar 27 15:07:10 UTC 2025","passed","Thu Mar 27 15:07:11 UTC 2025","","AutomationFramework.Tests.Specs.HomePageFeature","AutomationFramework.Tests.Specs.HomePageFeature",""
+"","2512","WorkflowEngine_ExecutesTasksInOrder","","Thu Mar 27 15:07:13 UTC 2025","passed","Thu Mar 27 15:07:16 UTC 2025","","AutomationFramework.Tests.WorkflowEngineTests","AutomationFramework.Tests.WorkflowEngineTests",""
+"","1011","DataFetchTask_ExecutesWithoutError","","Thu Mar 27 15:07:11 UTC 2025","passed","Thu Mar 27 15:07:12 UTC 2025","","AutomationFramework.Tests.TaskTests","AutomationFramework.Tests.TaskTests",""
