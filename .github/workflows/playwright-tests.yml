@@ -33,25 +33,30 @@ jobs:
     - name: Install Allure Commandline
       run: npm install -g allure-commandline --save-dev
 
+    # ✅ Run Tests (Target project + use settings)
     - name: Run Playwright E2E Tests with Allure Results
-      run: dotnet test --settings test.runsettings
+      run: dotnet test AutomationFramework.Tests/AutomationFramework.Tests.csproj --settings test.runsettings --logger "trx"
 
+    # 🧪 Check that Allure Results Exist
     - name: Check Allure Output
       run: |
         echo "Checking contents of allure-results:"
         ls -lah allure-results || echo "❌ No Allure results found"
 
+    # 📊 Generate Allure Report
     - name: Generate Allure Report
       run: |
         mkdir -p allure-report
         allure generate allure-results --clean -o allure-report
 
+    # 📥 Upload Allure report as an artifact
     - name: Upload Allure Report Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Allure-Test-Report
         path: allure-report
 
+    # 🌍 Deploy the report to GitHub Pages
     - name: Deploy Allure Report to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
